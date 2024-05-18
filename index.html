@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de Posiciones</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="mt-5">Tabla de Posiciones</h1>
+    
+    <!-- Formulario para ingresar equipos -->
+    <div class="mt-4">
+      <h3>Ingresar Equipos</h3>
+      <form id="teamForm">
+        <div class="form-group">
+          <label for="equipo">Nombre del Equipo</label>
+          <input type="text" class="form-control" id="equipo" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar Equipo</button>
+      </form>
+    </div>
+
+    <!-- Formulario para ingresar resultados -->
+    <div class="mt-4">
+      <h3>Ingresar Resultados</h3>
+      <form id="resultForm">
+        <div class="form-group">
+          <label for="equipoLocal">Equipo Local</label>
+          <select class="form-control" id="equipoLocal" required></select>
+        </div>
+        <div class="form-group">
+          <label for="equipoVisitante">Equipo Visitante</label>
+          <select class="form-control" id="equipoVisitante" required></select>
+        </div>
+        <div class="form-group">
+          <label for="golesLocal">Goles Local</label>
+          <input type="number" class="form-control" id="golesLocal" min="0" required>
+        </div>
+        <div class="form-group">
+          <label for="golesVisitante">Goles Visitante</label>
+          <input type="number" class="form-control" id="golesVisitante" min="0" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar Resultado</button>
+      </form>
+    </div>
+
+    <div class="mt-4">
+      <h3>Filtros</h3>
+      <div class="form-group">
+        <label for="filterEquipo">Filtrar por Equipo</label>
+        <select class="form-control" id="filterEquipo">
+          <option value="">Todos</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="filterPosicion">Filtrar por Posición</label>
+        <select class="form-control" id="filterPosicion">
+          <option value="">Todas</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Tabla de Posiciones -->
+    <div class="mt-5">
+      <h3>Tabla de Posiciones</h3>
+      <table id="tablaPosiciones" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Posición</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">PJ</th>
+            <th scope="col">PG</th>
+            <th scope="col">PE</th>
+            <th scope="col">PP</th>
+            <th scope="col">GF</th>
+            <th scope="col">GC</th>
+            <th scope="col">GD</th>
+            <th scope="col">Pts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se llenarán dinámicamente las filas con JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
