@@ -210,8 +210,8 @@ function cargarEquiposSelect() {
   const selectLocal = document.getElementById('equipoLocal');
   const selectVisitante = document.getElementById('equipoVisitante');
   const selectFilter = document.getElementById('filterEquipo');
-  const todos =document.createElement('option');
-  todos.text="Todos"
+  const todos = document.createElement('option');
+  todos.text = "Todos";
 
   // Limpiar listas desplegables
   selectLocal.innerHTML = '';
@@ -248,3 +248,12 @@ cargarEquiposSelect();
 
 // Llamar a la función para mostrar la tabla de posiciones inicial
 mostrarTablaPosiciones();
+
+module.exports = {
+  obtenerDatos,
+  guardarDatos,
+  inicializarDatos,
+  calcularTablaPosiciones,
+  mostrarTablaPosiciones,
+  cargarEquiposSelect
+}
