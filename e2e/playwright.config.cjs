@@ -29,7 +29,7 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL: "https://gmmonsalve.github.io/QA-Workshop/",
-    screenshot: "on",
+    screenshot: { mode: "on", fullPage: true},
     video: "on",
   
     /* Base URL to use in actions like `await page.goto('/')`. */
