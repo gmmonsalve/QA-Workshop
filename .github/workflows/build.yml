@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Test
         run: npm test
 
       - uses: sonarsource/sonarqube-quality-gate-action@master
