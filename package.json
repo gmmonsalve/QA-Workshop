@@ -2,7 +2,7 @@
   "scripts": {
     "test": "jest"
   },
-  "name": "testing-js",
+  "name": "testing",
   "description": "Learn how to test your JavaScript.",
   "version": "1.0.0",
   "license": "MIT",
@@ -15,5 +15,11 @@
   },
   "dependencies": {
     "fs": "^0.0.1-security"
-  }
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": ""
 }
