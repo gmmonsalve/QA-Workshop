@@ -25,8 +25,11 @@ jobs:
         run: npm install
 
       - name: Test
-        run: npm test -- --Coverage
+        run: npm test -- --coverage
           
+      - name: Test
+        run: ls 
+      
       - name: Test
         run: ls Coverage/
 
