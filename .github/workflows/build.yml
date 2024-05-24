@@ -25,7 +25,10 @@ jobs:
         run: npm install
 
       - name: Test
-        run: npm test -- --Coverage
+        run: npm test -- --
+          
+      - name: Test
+        run: ls Coverage/
 
       - uses: actions/setup-java@v4
         with:
