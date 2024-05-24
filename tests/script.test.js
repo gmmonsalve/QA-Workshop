@@ -61,13 +61,203 @@ describe('Test for script.js', () => {
             expect(selectFilter.childElementCount).toBe(4)
       })
 
-      test('Calcular tabla de posiciones should', () => {
+      test('Calcular tabla de posiciones should calculate tabla de posiciones when the local team score > visiting teamn', () => {
             const script = require('../js/script.js')
+            const equiposInit = [
+                  {
+                      "nombre": "junior",
+                      "PJ": 0,
+                      "PG": 0,
+                      "PE": 0,
+                      "PP": 0,
+                      "GF": 0,
+                      "GC": 0,
+                      "GD": 0,
+                      "Pts": 0
+                  },
+                  {
+                      "nombre": "nacional",
+                      "PJ": 0,
+                      "PG": 0,
+                      "PE": 0,
+                      "PP": 0,
+                      "GF": 0,
+                      "GC": 0,
+                      "GD": 0,
+                      "Pts": 0
+                  }
+              ]
+            const equiposFin = [
+                  {
+                      "nombre": "junior",
+                      "PJ": 1,
+                      "PG": 1,
+                      "PE": 0,
+                      "PP": 0,
+                      "GF": 2,
+                      "GC": 1,
+                      "GD": 1,
+                      "Pts": 3
+                  },
+                  {
+                      "nombre": "nacional",
+                      "PJ": 1,
+                      "PG": 0,
+                      "PE": 0,
+                      "PP": 1,
+                      "GF": 1,
+                      "GC": 2,
+                      "GD": -1,
+                      "Pts": 0
+                  }
+              ]
+            const partidos = [
+                  {
+                      "equipoLocalIndex": 0,
+                      "equipoVisitanteIndex": 1,
+                      "golesLocal": 2,
+                      "golesVisitante": 1
+                  }
+              ]
            
-            localStorage.setItem('equipos', JSON.stringify(datosTabla))
-            const spy = jest.spyOn(script, 'calcularTablaPosiciones')
+            localStorage.setItem('equipos', JSON.stringify(equiposInit))
+            localStorage.setItem('partidos', JSON.stringify(partidos))
             script.calcularTablaPosiciones()
-            expect(spy).toHaveBeenCalled()
+
+            const data = localStorage.getItem('equipos')
+            expect(JSON.parse(data)).toStrictEqual(equiposFin)
       });
-      
+
+      test('Calcular tabla de posiciones should calculate tabla de posiciones when the local team score < visiting teamn', () => {
+            const script = require('../js/script.js')
+            const equiposInit = [
+                  {
+                      "nombre": "junior",
+                      "PJ": 0,
+                      "PG": 0,
+                      "PE": 0,
+                      "PP": 0,
+                      "GF": 0,
+                      "GC": 0,
+                      "GD": 0,
+                      "Pts": 0
+                  },
+                  {
+                      "nombre": "medellin",
+                      "PJ": 0,
+                      "PG": 0,
+                      "PE": 0,
+                      "PP": 0,
+                      "GF": 0,
+                      "GC": 0,
+                      "GD": 0,
+                      "Pts": 0
+                  }
+              ]
+            const equiposFin = [
+                  {
+                      "nombre": "medellin",
+                      "PJ": 1,
+                      "PG": 1,
+                      "PE": 0,
+                      "PP": 0,
+                      "GF": 2,
+                      "GC": 1,
+                      "GD": 1,
+                      "Pts": 3
+                  },
+                  {
+                      "nombre": "junior",
+                      "PJ": 1,
+                      "PG": 0,
+                      "PE": 0,
+                      "PP": 1,
+                      "GF": 1,
+                      "GC": 2,
+                      "GD": -1,
+                      "Pts": 0
+                  }
+              ]
+            const partidos = [
+                  {
+                      "equipoLocalIndex": 0,
+                      "equipoVisitanteIndex": 1,
+                      "golesLocal": 1,
+                      "golesVisitante": 2
+                  }
+              ]
+           
+            localStorage.setItem('equipos', JSON.stringify(equiposInit))
+            localStorage.setItem('partidos', JSON.stringify(partidos))
+            script.calcularTablaPosiciones()
+
+            const data = localStorage.getItem('equipos')
+            expect(JSON.parse(data)).toStrictEqual(equiposFin)
+      });
+      test('Calcular tabla de posiciones should calculate tabla de posiciones when the local team score = visiting team score', () => {
+            const script = require('../js/script.js')
+            const equiposInit = [
+                  {
+                      "nombre": "junior",
+                      "PJ": 0,
+                      "PG": 0,
+                      "PE": 0,
+                      "PP": 0,
+                      "GF": 0,
+                      "GC": 0,
+                      "GD": 0,
+                      "Pts": 0
+                  },
+                  {
+                      "nombre": "nacional",
+                      "PJ": 0,
+                      "PG": 0,
+                      "PE": 0,
+                      "PP": 0,
+                      "GF": 0,
+                      "GC": 0,
+                      "GD": 0,
+                      "Pts": 0
+                  }
+              ]
+            const equiposFin = [
+                  {
+                      "nombre": "junior",
+                      "PJ": 1,
+                      "PG": 0,
+                      "PE": 1,
+                      "PP": 0,
+                      "GF": 1,
+                      "GC": 1,
+                      "GD": 0,
+                      "Pts": 1
+                  },
+                  {
+                      "nombre": "nacional",
+                      "PJ": 1,
+                      "PG": 0,
+                      "PE": 1,
+                      "PP": 0,
+                      "GF": 1,
+                      "GC": 1,
+                      "GD": 0,
+                      "Pts": 1
+                  }
+              ]
+            const partidos = [
+                  {
+                      "equipoLocalIndex": 0,
+                      "equipoVisitanteIndex": 1,
+                      "golesLocal": 1,
+                      "golesVisitante": 1
+                  }
+              ]
+           
+            localStorage.setItem('equipos', JSON.stringify(equiposInit))
+            localStorage.setItem('partidos', JSON.stringify(partidos))
+            script.calcularTablaPosiciones()
+
+            const data = localStorage.getItem('equipos')
+            expect(JSON.parse(data)).toStrictEqual(equiposFin)
+      });
 });
