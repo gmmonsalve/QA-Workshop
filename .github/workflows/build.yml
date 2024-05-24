@@ -33,6 +33,11 @@ jobs:
       - name: Test
         run: npm test
 
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
+
       - uses: sonarsource/sonarqube-quality-gate-action@master
         timeout-minutes: 5
         env:
